@@ -3,17 +3,42 @@
 }
 
 .slide {
-  height: 100%;
+  height: 100vh;
   width: 280px;
-  position: fixed;
   top: 0;
   left: 0;
   background-color: var(--cor-03);
   background-image: url("/img/background-1.svg");
   transition: 0.5s ease;
   transform: translateX(-280px);
-  z-index: 1;
+  z-index: 5;
+  touch-action: none;
+  position: fixed;
+  top: 0;
+  overflow-y: auto;
+  scrollbar-width: none;
 }
+
+.toggle {
+  position: absolute;
+  height: 28px;
+  width: 28px;
+  z-index: 3;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+}
+
+.close-menu {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  z-index: 3;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
 .toggle-title,
 .toggle-title-2 {
   top: 30px;
@@ -92,62 +117,7 @@ input:checked ~ .toggle-title-2::after {
   transform: rotate(180deg);
 }
 
-.toggle {
-  position: absolute;
-  height: 30px;
-  width: 30px;
-  z-index: 3;
-  top: 20px;
-  left: 20px;
-  cursor: pointer;
-}
-.toggle .common {
-  position: absolute;
-  height: 2px;
-  width: 20px;
-  background-color: #111;
-  border: 50px;
-  transition: 0.3s ease;
-}
-.toggle .top-line {
-  top: 30%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.toggle .mid-line {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.toggle .bot-line {
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-input:checked ~ .toggle .top-line {
-  left: 2px;
-  top: 14px;
-  width: 25px;
-  transform: rotate(45deg);
-}
-
-input:checked ~ .toggle .bot-line {
-  left: 2px;
-  top: 14px;
-  width: 25px;
-  transform: rotate(-45deg);
-}
-input:checked ~ .toggle .mid-line {
-  opacity: 0;
-}
-
-input:checked ~ .toggle {
-  transform: translateX(210px);
-  transition: 0.5s ease;
-}
-
-input:checked ~ .slide {
+.slide.ativo {
   transform: translateX(0);
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
 }
